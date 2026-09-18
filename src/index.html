@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeTale</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animation.css" />
+</head>
+<body data-theme="glass">
+  <main class="app-shell">
+    <section id="loginScreen" class="screen login-screen active">
+      <div class="login-copy">
+        <p class="eyebrow">Welcome Back</p>
+        <h1>TypeTale</h1>
+        <p class="subtitle">Sign in to continue your typing practice dashboard, progress reports, and focused drills.</p>
+      </div>
+
+      <form id="loginForm" class="auth-card">
+        <h2>Login</h2>
+        <label>Email <input id="loginEmail" type="email" placeholder="student@example.com" required /></label>
+        <label>Password <input id="loginPassword" type="password" placeholder="Enter any password" required /></label>
+        <p id="authMessage" class="auth-message" aria-live="polite"></p>
+        <button class="primary-btn" type="submit">Login</button>
+        <button id="forgotPasswordBtn" class="link-btn" type="button">Forgot password?</button>
+      </form>
+    </section>
+
+    <section class="hero-panel app-only">
+      <div>
+        <p class="eyebrow">Offline Typing Coach</p>
+        <h1>TypeTale</h1>
+        <p class="subtitle">A calm desktop typing trainer that diagnoses weak keys, rhythm, fatigue, and recommends focused practice.</p>
+      </div>
+
+      <div class="hero-side">
+        <span>Current Goal</span>
+        <strong id="currentGoal">Diagnostic Test</strong>
+        <button id="logoutBtn" class="logout-btn" type="button">Logout</button>
+        <div class="theme-switcher" aria-label="Theme selection">
+          <button class="theme-btn" data-theme="paper">Paper</button>
+          <button class="theme-btn" data-theme="midnight">Midnight</button>
+          <button class="theme-btn active" data-theme="glass">Glass</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboardScreen" class="screen app-only">
+      <div class="section-heading">
+        <h2>Practice Dashboard</h2>
+        <p>Choose a goal, run a test, then practice the exact patterns that slowed you down.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="stat-card"><span>Best WPM</span><strong id="bestWpm">0</strong></article>
+        <article class="stat-card"><span>Best Accuracy</span><strong id="bestAccuracy">0%</strong></article>
+        <article class="stat-card"><span>Sessions</span><strong id="sessionCount">0</strong></article>
+      </div>
+
+      <div class="mode-scroll-wrap">
+        <div id="modeGrid" class="mode-grid" aria-label="Practice modes"></div>
+      </div>
+
+      <article class="recommendation-card">
+        <span>Next Recommended Drill</span>
+        <h3 id="recommendationTitle">Diagnostic Test</h3>
+        <p id="recommendationText">Start with a diagnostic round so TypeTale can build your first practice recommendation.</p>
+      </article>
+
+      <article class="timeline-card">
+        <span>Recent Results</span>
+        <div id="progressTimeline" class="progress-timeline"></div>
+      </article>
+
+      <div class="time-selector">
+        <label>Duration:</label>
+        <div id="timeOptions" class="time-options">
+          <button class="time-btn" data-time="30">30s</button>
+          <button class="time-btn active" data-time="60">1m</button>
+          <button class="time-btn" data-time="120">2m</button>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="startBtn" class="primary-btn">Start Practice</button>
+        <button id="weakWordsBtn" class="secondary-btn">Weak Word Practice</button>
+      </div>
+    </section>
+
+    <section id="testScreen" class="screen focus-screen">
+      <div class="test-topbar">
+        <div><span>Time</span><strong id="timer">60</strong></div>
+        <div><span>WPM</span><strong id="liveWpm">0</strong></div>
+        <div><span>Accuracy</span><strong id="liveAccuracy">100%</strong></div>
+      </div>
+
+      <div class="decode-meter">
+        <div class="decode-meter-header">
+          <span>Consistency Signal</span>
+          <strong id="decodeMeterText">100%</strong>
+        </div>
+        <div class="progress-track"><div id="decodeMeterBar" class="progress-fill"></div></div>
+      </div>
+
+      <div id="typingSurface" class="typing-surface" tabindex="0" aria-label="Typing practice">
+        <div id="jumbledText" class="jumbled-text"></div>
+        <input id="typingInput" class="ghost-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      </div>
+
+      <div class="button-row test-actions">
+        <button id="finishTestBtn" class="secondary-btn" type="button">Finish Test</button>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="section-heading">
+        <h2>Practice Report</h2>
+        <p>Your result focuses on what to improve next, not just how fast you typed.</p>
+      </div>
+
+      <div class="result-grid">
+        <article class="stat-card"><span>WPM</span><strong id="finalWpm">0</strong></article>
+        <article class="stat-card"><span>Accuracy</span><strong id="finalAccuracy">0%</strong></article>
+        <article class="stat-card"><span>Consistency</span><strong id="finalConsistency">0%</strong></article>
+      </div>
+
+      <div class="insight-grid">
+        <article class="insight-card"><div class="insight-heading"><span>Typing Profile</span><strong id="personalityTitle">Steady Typist</strong></div><p id="personalityBody" class="empty-note"></p></article>
+        <article class="insight-card"><div class="insight-heading"><span>Recommendation</span><strong id="resultRecommendationTitle">Next Drill</strong></div><p id="resultRecommendationText" class="empty-note"></p></article>
+        <article class="insight-card"><div class="insight-heading"><span>Fatigue Detection</span><strong id="fatigueTitle">Stable Finish</strong></div><p id="fatigueBody" class="empty-note"></p></article>
+      </div>
+
+      <div class="insight-grid">
+        <article class="insight-card"><div class="insight-heading"><span>Error Heatmap</span><strong>Keyboard Pattern</strong></div><div id="keyboardHeatmap" class="keyboard-heatmap"></div></article>
+        <article class="insight-card"><div class="insight-heading"><span>Typing Rhythm</span><strong>WPM Over Time</strong></div><div id="rhythmGraph" class="rhythm-graph"></div></article>
+      </div>
+
+      <article class="replay-card">
+        <span>Mistake Replay</span>
+        <div id="mistakeReplay" class="mistake-replay"></div>
+      </article>
+
+      <div class="button-row">
+        <button id="nextBtn" class="primary-btn">Practice Recommended Drill</button>
+        <button id="dashboardBtn" class="secondary-btn">Back Dashboard</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="data/stories.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/storyEngine.js"></script>
+  <script src="js/resultCalculator.js"></script>
+  <script src="js/typingTest.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
