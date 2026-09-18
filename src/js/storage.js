@@ -3,7 +3,7 @@ const Storage = {
 
   getDefaultProgress() {
     return {
-      theme: "glass",
+      theme: "midnight",
       selectedMode: "diagnostic",
       history: [],
       weakWords: [],
@@ -25,8 +25,8 @@ const Storage = {
     if (!saved) return this.getDefaultProgress();
 
     const progress = JSON.parse(saved);
-    const allowedThemes = ["paper", "midnight", "glass"];
-    const theme = allowedThemes.includes(progress.theme) ? progress.theme : "glass";
+    const allowedThemes = ["paper", "midnight"];
+    const theme = allowedThemes.includes(progress.theme) ? progress.theme : "midnight";
 
     return {
       theme,

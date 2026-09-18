@@ -1,6 +1,6 @@
 # TypeTale
 
-TypeTale is an offline Electron typing coach with fake login, multiple practice modes, typing analytics, weak-key detection, progress tracking, and a liquid-glass themed interface.
+TypeTale is an offline Electron typing coach with fake login, multiple practice modes, typing analytics, weak-key detection, progress tracking, and clean paper/midnight themes.
 
 ## Features
 
@@ -13,8 +13,7 @@ TypeTale is an offline Electron typing coach with fake login, multiple practice 
 - WPM, accuracy, consistency, rhythm, and fatigue feedback
 - Weak key and weak word detection
 - Progress timeline
-- Paper, Midnight, and Glass themes
-- Apple-inspired liquid-glass UI style
+- Paper and Midnight themes
 
 ## Tech Stack
 

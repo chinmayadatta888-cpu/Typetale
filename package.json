@@ -1,7 +1,7 @@
 {
   "name": "typetale",
   "version": "1.0.0",
-  "description": "An offline Electron typing coach with fake login, practice modes, analytics, and a liquid-glass interface.",
+  "description": "An offline Electron typing coach with fake login, practice modes, analytics, and paper/midnight themes.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."

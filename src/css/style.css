@@ -43,34 +43,12 @@ body[data-theme="midnight"] {
   --shadow: rgba(0, 0, 0, 0.22);
 }
 
-body[data-theme="glass"] {
-  --bg: #48a8ee;
-  --panel: rgba(143, 211, 255, 0.26);
-  --panel-soft: rgba(161, 219, 255, 0.3);
-  --hero: rgba(143, 211, 255, 0.24);
-  --typing: rgba(118, 198, 250, 0.2);
-  --text: #f7fcff;
-  --muted: rgba(238, 249, 255, 0.78);
-  --line: rgba(255, 255, 255, 0.34);
-  --accent: #ffffff;
-  --accent-soft: rgba(255, 255, 255, 0.22);
-  --shadow: rgba(4, 92, 158, 0.34);
-}
-
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
   font-family: Aptos, "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
   font-weight: 500;
-}
-
-body[data-theme="glass"] {
-  background:
-    radial-gradient(circle at 18% 5%, rgba(255, 255, 255, 0.38), transparent 26%),
-    radial-gradient(circle at 80% 0%, rgba(201, 236, 255, 0.34), transparent 28%),
-    linear-gradient(180deg, #7fd0ff 0%, #4cafef 42%, #1789df 100%);
-  background-attachment: fixed;
 }
 
 h1,
@@ -117,29 +95,6 @@ h3 {
   box-shadow: 0 18px 40px var(--shadow);
 }
 
-body[data-theme="glass"] .hero-panel,
-body[data-theme="glass"] .screen,
-body[data-theme="glass"] .stat-card,
-body[data-theme="glass"] .mode-card,
-body[data-theme="glass"] .recommendation-card,
-body[data-theme="glass"] .insight-card,
-body[data-theme="glass"] .replay-card,
-body[data-theme="glass"] .timeline-card,
-body[data-theme="glass"] .test-topbar div,
-body[data-theme="glass"] .decode-meter,
-body[data-theme="glass"] .typing-surface {
-  border-color: rgba(255, 255, 255, 0.26);
-  background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.12) 46%, rgba(0, 117, 207, 0.08));
-  box-shadow:
-    0 10px 26px rgba(4, 92, 158, 0.36),
-    inset 0 2px 4px rgba(255, 255, 255, 0.58),
-    inset 0 -4px 10px rgba(4, 92, 158, 0.22),
-    inset 0 0 18px rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(22px) saturate(170%);
-  -webkit-backdrop-filter: blur(22px) saturate(170%);
-}
-
 .hero-panel {
   display: flex;
   justify-content: space-between;
@@ -149,11 +104,6 @@ body[data-theme="glass"] .typing-surface {
   margin-bottom: 24px;
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 118, 110, 0.68)), var(--hero);
   color: #ffffff;
-}
-
-body[data-theme="glass"] .hero-panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.12)), rgba(94, 184, 243, 0.28);
-  color: #f7fcff;
 }
 
 .screen {
@@ -194,10 +144,6 @@ body[data-theme="glass"] .hero-panel {
   color: rgba(241, 245, 249, 0.84);
   font-weight: 600;
   line-height: 1.6;
-}
-
-body[data-theme="glass"] .subtitle {
-  color: rgba(247, 252, 255, 0.84);
 }
 
 .hero-side {
@@ -255,20 +201,6 @@ body[data-theme="glass"] .subtitle {
   background: var(--accent);
   border-color: var(--accent);
   color: #ffffff;
-}
-
-body[data-theme="glass"] .theme-btn,
-body[data-theme="glass"] .primary-btn,
-body[data-theme="glass"] .secondary-btn,
-body[data-theme="glass"] .time-btn {
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.12)), rgba(103, 192, 250, 0.3);
-  color: #ffffff;
-  box-shadow:
-    0 8px 18px rgba(4, 92, 158, 0.26),
-    inset 0 2px 3px rgba(255, 255, 255, 0.52),
-    inset 0 -3px 8px rgba(4, 92, 158, 0.2);
 }
 
 .auth-card {
@@ -372,12 +304,6 @@ body[data-theme="glass"] .time-btn {
 .mode-card.active {
   border-color: var(--accent);
   background: var(--accent-soft);
-}
-
-body[data-theme="glass"] .mode-card,
-body[data-theme="glass"] .screen,
-body[data-theme="glass"] .hero-panel {
-  border-radius: 28px;
 }
 
 .mode-card strong,
@@ -527,7 +453,7 @@ body[data-theme="glass"] .hero-panel {
 }
 
 .char.correct {
-  color: var(--text);
+  color: #22c55e;
 }
 
 .char.wrong {
@@ -674,3 +600,4 @@ body[data-theme="glass"] .hero-panel {
     font-size: 42px;
   }
 }
+
